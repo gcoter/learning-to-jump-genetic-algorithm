@@ -27,9 +27,9 @@ class Brain(object):
         # Transition between two layers :
         # newInput = oldInput . weights (matrix multiplication)
         for id in range(0,len(self.weights)):
-            M = np.dot(M, self.weights[id]) + self.biases[id]
+            M = self.sigmoid(np.dot(M, self.weights[id]) + self.biases[id])
             
-        return self.sigmoid(M) # sigmoid returns a vector with values between 0 and 1
+        return M # sigmoid returns a vector with values between 0 and 1
     
     def sigmoid(self, z):
         return 1/(1+np.exp(-z))
