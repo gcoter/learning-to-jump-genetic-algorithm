@@ -21,6 +21,7 @@ class GameDisplay(object):
     def displayPlayer(self,player):
         self.display.blit(player.getImage(),(player.getX(),player.getY()))
         
+    # Unused : strange exceptions
     def displayTexts(self,generationID,playerID,score):
         mainString = 'GENERATION ' + str(generationID) + ' | PLAYER ' + str(playerID)
         scoreString = 'SCORE = ' + str(score)
@@ -39,7 +40,7 @@ class GameDisplay(object):
         pygame.draw.rect(self.display,self.black,(obstacle.getX(),obstacle.getY(),obstacle.getWidth(),obstacle.getHeight()))
 
         # render text
-        self.displayTexts(generationID,playerID,score)
+        # self.displayTexts(generationID,playerID,score)
         		
         # UPDATE DISPLAY
         pygame.display.update()
