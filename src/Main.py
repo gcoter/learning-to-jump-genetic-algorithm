@@ -20,8 +20,8 @@ maxHeight = 15
 image_path = '../img/player.png'
 timeCoef = 2 # modifies the simulation's speed (ex: if 2, speed is doubled)
 
-nbGenerations = 5 # number of generations
-nbPlayersPerGeneration = 20 # number of players per generations
+nbGenerations = 10 # number of generations
+nbPlayersPerGeneration = 10 # number of players per generations
 shape = [2,2,3] # defines the shape of the perceptron : each value is the number of nodes in the corresponding layer
 probCrossover = 0.72 # probability that a crossover occurs
 probMutation = 0.06 # probability that a mutation occurs
