@@ -11,10 +11,12 @@ class Brain(object):
         
         # Parameters
         self.weights = []
+        self.biases = []
         
         # Weights (parameters)
         for id in range(len(self.dims)-1):
             self.weights.append(np.random.randn(dims[id],dims[id+1]))
+            self.biases.append(np.random.randn(dims[id+1]))
         
         if not params is None:
             self.setParameters(params)
@@ -25,7 +27,7 @@ class Brain(object):
         # Transition between two layers :
         # newInput = oldInput . weights (matrix multiplication)
         for id in range(0,len(self.weights)):
-            M = np.dot(M, self.weights[id])
+            M = np.dot(M, self.weights[id]) + self.biases[id]
             
         return self.sigmoid(M) # sigmoid returns a vector with values between 0 and 1
     
@@ -37,12 +39,13 @@ class Brain(object):
     
     # Returns a single vector that contains all weights
     def getParameters(self):
-        params = self.weights[0].ravel()
+        parameters = np.concatenate((self.weights[0].ravel(), self.biases[0]))
         
         for id in range(len(self.weights)-1):
-            params = params = np.concatenate((params, self.weights[id+1].ravel()))
+            parameters = np.concatenate((parameters, self.weights[id+1].ravel()))
+            parameters = np.concatenate((parameters, self.biases[id+1]))
     
-        return params
+        return parameters
     
     # Set weights using single paramater vector
     def setParameters(self, parameters):
@@ -52,4 +55,8 @@ class Brain(object):
         for id in range(len(self.dims)-1):
             end += self.dims[id] * self.dims[id+1]
             self.weights[id] = np.reshape(parameters[start:end], (self.dims[id] , self.dims[id+1]))
+            start = end
+            
+            end += self.dims[id+1]
+            self.biases[id] = parameters[start:end]
             start = end
