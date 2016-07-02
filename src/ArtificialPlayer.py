@@ -31,5 +31,5 @@ class ArtificialPlayer(Player):
         return self.brain.getDecisions(self.detect(obstacle))
         
     def getChromosome(self):
-        return self.brain.getParams()
+        return self.brain.getParameters()
         
