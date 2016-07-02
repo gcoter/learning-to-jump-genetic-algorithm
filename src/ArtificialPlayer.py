@@ -1,6 +1,3 @@
-"""
-@author: Guillaume COTER
-"""
 from Brain import Brain
 from Player import Player
 

@@ -1,6 +1,3 @@
-"""
-@author: Guillaume COTER
-"""
 # Defines an obstacle
 class Obstacle(object):
     def __init__(self,x,y,width,height):

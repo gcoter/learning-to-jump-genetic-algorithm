@@ -1,6 +1,3 @@
-"""
-@author: Guillaume COTER
-"""
 #************************* MAIN CODE *********************************
 from Game import Game
 from GameDisplay import GameDisplay
@@ -38,7 +35,7 @@ if displayOn:
 clock = pygame.time.Clock()
 pygame.time.set_timer(pygame.USEREVENT+1, 1000)#1 second is 1000 milliseconds
 
-#============================FUNTIONS=================================
+#============================FUNCTIONS=================================
 def runAGame(player,generationID=0,playerID=0):
     # Init
     currentGame = Game(pygame,maxHeight,display_width,display_height,timeCoef,player)
@@ -177,7 +174,7 @@ def getAvgScores(allScores):
 #=========================MAIN CODE===================================
 allScores = evolution(nbGenerations,nbPlayersPerGeneration,shape,image_path)
 avgScores = getAvgScores(allScores)
-print "Avarage scores : " + str(avgScores)
+print "Average scores : " + str(avgScores)
 
 pygame.quit()
 

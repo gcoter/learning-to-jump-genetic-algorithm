@@ -1,6 +1,3 @@
-"""
-@author: Guillaume COTER
-"""
 # Defines a Player
 class Player(object):
     def __init__(self,pygame,imagePath,x,y):
