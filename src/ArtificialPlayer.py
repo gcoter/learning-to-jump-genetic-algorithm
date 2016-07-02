@@ -26,6 +26,14 @@ class ArtificialPlayer(Player):
             sensorRight = 1
         
         return [sensorLeft,sensorRight]
+
+    def printDecisions(self):
+        possibleInputs = [[0,0],[0,1],[1,0],[1,1]]
+        
+        for possibleInput in possibleInputs:
+            print str(possibleInput) + ' => ' + str(self.brain.getDecisions(possibleInput))
+            
+        print ''
         
     def getDecisions(self,obstacle):
         return self.brain.getDecisions(self.detect(obstacle))

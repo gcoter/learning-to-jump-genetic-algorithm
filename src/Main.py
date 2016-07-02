@@ -18,11 +18,11 @@ display_width = 800 # window's width
 display_height = 200 # window's height
 maxHeight = 15 
 image_path = '../img/player.png'
-timeCoef = 2 # modify the simulation's speed (ex: if 2, speed is doubled)
+timeCoef = 2 # modifies the simulation's speed (ex: if 2, speed is doubled)
 
 nbGenerations = 5 # number of generations
-nbPlayersPerGeneration = 10 # number of players per generations
-shape = [2,2,3] # define the shape of the perceptron : each value is the number of nodes in the corresponding layer
+nbPlayersPerGeneration = 20 # number of players per generations
+shape = [2,2,3] # defines the shape of the perceptron : each value is the number of nodes in the corresponding layer
 probCrossover = 0.72 # probability that a crossover occurs
 probMutation = 0.06 # probability that a mutation occurs
 mutationImpact = 0.5 # how much will be added or substracted to a gene value when a mutation occurs
@@ -133,6 +133,7 @@ def evolution(nbGenerations,nbPlayersPerGeneration,shape,image_path):
         ap = ArtificialPlayer(pygame,image_path,(display_width * 0),(display_height * 0.8),shape)
         score = runAGame(ap,0,p)
         print 'Score = ' + str(score)
+        ap.printDecisions()
         generationScores.append(score)
         res.append([ap.getChromosome(),score])
         
@@ -150,6 +151,7 @@ def evolution(nbGenerations,nbPlayersPerGeneration,shape,image_path):
             score = runAGame(ap,g,p)
             res.append([ap.getChromosome(),score])
             print 'Score = ' + str(score)
+            ap.printDecisions()
             generationScores.append(score)
         
         print '======================================'
